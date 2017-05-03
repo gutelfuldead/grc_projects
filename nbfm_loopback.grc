@@ -159,7 +159,62 @@
     </param>
     <param>
       <key>value</key>
-      <value>250000*10</value>
+      <value>250000</value>
+    </param>
+  </block>
+  <block>
+    <key>analog_nbfm_rx</key>
+    <param>
+      <key>audio_rate</key>
+      <value>audio_rate</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(440, 263)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>analog_nbfm_rx_0</value>
+    </param>
+    <param>
+      <key>max_dev</key>
+      <value>5e3</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>quad_rate</key>
+      <value>audio_rate</value>
+    </param>
+    <param>
+      <key>tau</key>
+      <value>75e-6</value>
     </param>
   </block>
   <block>
@@ -221,7 +276,7 @@
     <key>analog_wfm_rcv</key>
     <param>
       <key>audio_decimation</key>
-      <value>audio_interpolation</value>
+      <value>1</value>
     </param>
     <param>
       <key>alias</key>
@@ -237,11 +292,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(464, 269)</value>
+      <value>(432, 381)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -261,7 +316,7 @@
     </param>
     <param>
       <key>quad_rate</key>
-      <value>audio_rate*audio_interpolation</value>
+      <value>audio_rate</value>
     </param>
   </block>
   <block>
@@ -339,7 +394,7 @@
     </param>
     <param>
       <key>file</key>
-      <value>/home/afx/gits/SDR/gnuradio_companion_programs/zed_fm_transmit/sdr-csp_lowFreqUSE.wav</value>
+      <value>/media/sf_labuser/gnuradio/SDR/gnuradio_companion_programs/zed_fm_transmit/sdr-csp_lowFreqUSE.wav</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -414,7 +469,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(744, 406)</value>
+      <value>(768, 406)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -689,7 +744,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(728, 262)</value>
+      <value>(768, 270)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -975,7 +1030,7 @@
     </param>
     <param>
       <key>interp</key>
-      <value>audio_rate*audio_interpolation</value>
+      <value>audio_rate</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -994,6 +1049,18 @@
       <value>ccc</value>
     </param>
   </block>
+  <connection>
+    <source_block_id>analog_nbfm_rx_0</source_block_id>
+    <sink_block_id>qtgui_freq_sink_x_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>analog_nbfm_rx_0</source_block_id>
+    <sink_block_id>qtgui_waterfall_sink_x_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
   <connection>
     <source_block_id>analog_nbfm_tx_0</source_block_id>
     <sink_block_id>rational_resampler_xxx_0</sink_block_id>
@@ -1027,6 +1094,12 @@
   <connection>
     <source_block_id>rational_resampler_xxx_0</source_block_id>
     <sink_block_id>blocks_throttle_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>rational_resampler_xxx_1</source_block_id>
+    <sink_block_id>analog_nbfm_rx_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
