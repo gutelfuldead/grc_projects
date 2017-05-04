@@ -11,6 +11,8 @@ contains miscellaneous gnuradio designs mainly for hardware verification
 
 `wbfm_loopback.grc` uses `sdr-csp.wav` with wbfm in loopback to waterfall
 
+`loopback_tcp_wbfm_stream.grc` identical to `wbfm_loopback.grc` except using the FMCOMMS2/3 source blocks for actual transmission
+
 CentOS7 notes:
 --------------
 
