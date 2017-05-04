@@ -13,6 +13,8 @@ contains miscellaneous gnuradio designs mainly for hardware verification
 
 `loopback_tcp_wbfm_stream.grc` identical to `wbfm_loopback.grc` except using the FMCOMMS2/3 source blocks for actual transmission
 
+`sin_f10e3_tcp_wbfm_stream.grc` sends a 10KHz sinusoid over fmcomms2/3 for device verification
+
 CentOS7 notes:
 --------------
 
