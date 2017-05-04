@@ -5,11 +5,21 @@ contains miscellaneous gnuradio designs mainly for hardware verification
 
 `sdr-csp.wav` contains image used in waterfall plot
 
-`nbfm_loopback.grc` - internal nbfm loopback test to be used with sdr-csp.wav
+`chirper.grc` chirp passed through wbfm
+
+`pc_stream.grc` used to stream data from external device
+
+`wbfm_loopback.grc` uses `sdr-csp.wav` with wbfm in loopback to waterfall
+
+CentOS7 notes:
+--------------
+
+When streaming from external device to `pc_stream.grc` the ports requested will be disabled by default, to enable:
 
 ```
-./fmcomms_tcp_nbfm_stream
-|	loopback_tcp_stream_fmcomms.grc -- fmcomms3 blocks connected directly to TCP
-|	nbfm_pc_tx.grc -- tx chain to tcp block
-|	nbfm_pc_rx.grc -- rx chain from tcp block
+A=firewall-cmd --get-active-zones
+
+firewall-cmd --zone=$A --add-port=12346/tcp --permanent
+
+firewall-cmd --reload
 ```
